@@ -1,0 +1,562 @@
+@import url("https://hebits.net/static/styles/base/style.css?v=1772894811");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+/* =========================================
+   AURORA PREMIUM GLASS V32 (The 1440px Masterpiece)
+   ========================================= */
+
+:root {
+  /* Glassmorphism Core */
+  --glass-blur: blur(40px) saturate(180%);
+  --bg-deep: #131826; 
+  --hb-bg: transparent;
+  --hb-panel: rgba(22, 30, 46, 0.65);
+  --hb-panel-hover: rgba(35, 45, 65, 0.75);
+  --hb-border: rgba(255, 255, 255, 0.12);
+  --hb-border-soft: rgba(255, 255, 255, 0.06);
+  --hb-text: #f8fafc; 
+  --hb-text-strong: #ffffff;
+  --hb-muted: #94a3b8;
+  --hb-font: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --accent-blue: #0ea5e9;
+  --accent-purple: #160638;
+  --accent-pink: #ec4899;
+  --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  --hb-link: #38bdf8;
+  --hb-link-hover: #fbcfe8; 
+  --hb-success: #10b981;
+  --hb-danger: #f43f5e;
+  --hb-warn: #f59e0b;
+  --hb-radius-sm: 8px;
+  --hb-radius: 16px;
+  --hb-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); 
+}
+
+/* =========================================
+   BACKGROUND & AURORA LIGHTING
+   ========================================= */
+body {
+  background: var(--bg-deep) !important;
+  color: var(--hb-text) !important;
+  font-family: var(--hb-font) !important;
+  letter-spacing: 0.2px !important;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%; left: -10%;
+  width: 60%; height: 60%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, transparent 60%);
+  filter: blur(90px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -10%; right: -10%;
+  width: 60%; height: 60%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(236, 72, 153, 0.1) 40%, transparent 60%);
+  filter: blur(90px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+html, .body, .tdhack {
+  background: transparent !important;
+}
+
+/* =========================================
+   WIDESCREEN LAYOUT (ההרחבה שלך - 1440px)
+   ========================================= */
+#content, #searchbars {
+  max-width: 1340px !important;
+  margin: 0 auto !important; /* דואג שיישאר ממורכז בדיוק באמצע */
+}
+
+/* =========================================
+   HEADER & UNLIMITED STICKY MENU
+   ========================================= */
+#header {
+  display: contents !important;
+}
+
+#menu {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 99999 !important; 
+  background: rgba(19, 24, 38, 0.85) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+  border-bottom: 1px solid var(--hb-border) !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+#menu ul > li > a {
+  font-weight: 600 !important;
+  color: var(--hb-text) !important;
+  padding: 12px 18px !important;
+  border-radius: var(--hb-radius-sm) !important;
+  transition: all 0.2s ease !important;
+}
+
+#menu ul > li > a:hover, #header > #menu ul > li.active > a {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  box-shadow: inset 0 -3px 0 var(--accent-blue) !important; 
+}
+
+/* =========================================
+   ADMIN ALERTS BAR 
+   ========================================= */
+#alerts {
+  background: transparent !important;
+  padding: 15px 10px !important;
+}
+
+#alerts .alertbar {
+  background: var(--hb-panel) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+  padding: 12px 20px !important;
+  text-align: center !important;
+  color: var(--hb-text-strong) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+#alerts .alertbar a {
+  margin: 0 6px !important;
+  font-weight: 700 !important;
+}
+
+#alerts .alertbar a[style*="color"] {
+  filter: brightness(1.4) drop-shadow(0 1px 4px rgba(0,0,0,0.8)) !important;
+}
+
+/* =========================================
+   MAIN PANELS & CARDS
+   ========================================= */
+.box, .panel__body, table.torrent_table, table.forum_post, table.message_table, #inbox .box, .filter_torrents {
+  background: var(--hb-panel) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: 1px solid var(--hb-border) !important;
+  border-top: 2px solid var(--accent-blue) !important; 
+  border-radius: var(--hb-radius) !important;
+  box-shadow: var(--hb-shadow) !important;
+  margin-bottom: 24px !important;
+  transition: all 0.3s ease !important;
+  color: var(--hb-text) !important;
+  overflow: hidden !important; 
+}
+
+.box:hover {
+  border-color: rgba(139, 92, 246, 0.4) !important; 
+  border-top-color: var(--accent-purple) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(14, 165, 233, 0.15) !important;
+}
+
+/* =========================================
+   GLOBAL TABLE RESET 
+   ========================================= */
+table, tbody, tr, td, th {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+.head, .colhead_dark, tr.colhead, tr.colhead td, tr.colhead_dark td, thead th, table th, .forum_category_title {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--hb-text-strong) !important;
+  font-weight: 700 !important;
+  border-bottom: 1px solid var(--hb-border-soft) !important;
+  border-top: none !important; 
+  padding: 14px 16px !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6) !important;
+}
+
+tr:nth-child(odd) > td, tr.rowa > td {
+  background: rgba(0, 0, 0, 0.15) !important;
+  border-bottom: 1px solid var(--hb-border-soft) !important;
+}
+
+tr:nth-child(even) > td, tr.rowb > td {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-bottom: 1px solid var(--hb-border-soft) !important;
+}
+
+tr:hover > td:not(.tdhack) {
+  background: rgba(139, 92, 246, 0.15) !important;
+  box-shadow: inset 2px 0 0 var(--accent-purple) !important; 
+}
+
+form.search_form, form.search_form > div, #searchbox, #searchbox > div,
+table.layout td, .filter_torrents td, .filter_torrents tr, .filter_torrents div,
+table.forum_post td, table.message_table td, div.movie-item, #threadpoll, 
+div#quickreplytext, table.ft_cat_list td {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+table.forum_post td.avatar {
+  border-left: 1px solid var(--hb-border-soft) !important;
+}
+
+/* =========================================
+   TYPOGRAPHY, HEADERS & READABILITY
+   ========================================= */
+.box, .panel__body, td, th, div, span, p, label {
+  text-shadow: none !important; 
+  font-family: var(--hb-font) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--hb-text-strong) !important;
+  font-family: var(--hb-font) !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5) !important;
+  margin-top: 0 !important;
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  color: var(--hb-muted) !important;
+  font-size: 0.75em !important;
+  font-weight: 500 !important;
+  margin-right: 8px !important;
+}
+
+.forum_post .body, .message_table td, form.search_form, form.search_form div, form.search_form td, form.search_form label, table td {
+  color: var(--hb-text-strong) !important;
+  font-size: 14px !important; 
+  line-height: 1.6 !important;
+}
+
+.small, .desc, .poll, .news_post, .time, span[style*="color: grey"] {
+  color: var(--hb-muted) !important;
+  font-weight: 500 !important;
+}
+
+blockquote {
+  background: rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid var(--hb-border-soft) !important;
+  border-right: 3px solid var(--accent-purple) !important;
+  border-radius: var(--hb-radius-sm) !important;
+  padding: 12px 16px !important;
+  color: var(--hb-text) !important;
+  margin: 10px 0 !important;
+}
+
+/* =========================================
+   LINKS & THE GRAY EXTERMINATOR
+   ========================================= */
+a {
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  font-family: var(--hb-font) !important;
+}
+
+#inbox .box .head a:not([class*="permission_"]):not([href*="user.php?id="]),
+.box.filter_torrents .head a:not([class*="permission_"]):not([href*="user.php?id="]),
+.forum_post .colhead a:not([class*="permission_"]):not([href*="user.php?id="]),
+.forum_post .colhead_dark a:not([class*="permission_"]):not([href*="user.php?id="]) {
+  color: var(--hb-text-strong) !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8) !important;
+}
+
+#inbox .box .head a:not([class*="permission_"]):not([href*="user.php?id="]):hover,
+.box.filter_torrents .head a:not([class*="permission_"]):not([href*="user.php?id="]):hover,
+.forum_post .colhead a:not([class*="permission_"]):not([href*="user.php?id="]):hover,
+.forum_post .colhead_dark a:not([class*="permission_"]):not([href*="user.php?id="]):hover {
+  color: var(--hb-link-hover) !important;
+  text-shadow: 0 0 8px rgba(14, 165, 233, 0.6) !important;
+}
+
+a:not([class*="permission_"]):not([href*="user.php?id="]) {
+  color: var(--hb-link);
+}
+a:not([class*="permission_"]):not([href*="user.php?id="]):hover {
+  color: var(--hb-link-hover);
+  text-shadow: 0 0 8px rgba(14, 165, 233, 0.6) !important;
+}
+
+/* =========================================
+   MASTER RANKS OVERRIDE (THE OFFICIAL SYSTEM COLORS)
+   ========================================= */
+a[class*="permission_"] {
+  text-shadow: 0 0 3px rgba(0,0,0,0.5) !important; 
+  transition: all 0.2s ease !important;
+}
+
+a[class*="permission_"]:hover {
+  filter: brightness(1.3) drop-shadow(0 0 6px currentColor) !important;
+}
+
+a.permission_staff { font-weight: bold !important; color: #026ad4 !important; }
+a.permission_1000  { font-weight: bold !important; color: #cd0010 !important; } 
+a.permission_900   { font-weight: bold !important; color: #F0133F !important; } 
+a.permission_800   { font-weight: bold !important; color: #026ad4 !important; } 
+a.permission_700   { font-weight: bold !important; color: #b72b06 !important; } 
+a.permission_600   { font-weight: bold !important; color: #c46ebd !important; } 
+a.permission_450   { font-weight: bold !important; color: #66CCFF !important; } 
+a.permission_400   { color: #FF0099 !important; } 
+a.permission_205   { color: #00AB22 !important; } 
+a.permission_200   { color: #00FF99 !important; } 
+a.permission_150   { font-weight: bold !important; color: #FF9900 !important; } 
+a.permission_100   { color: #FFF300 !important; } 
+a.permission_17    { color: #66CC99 !important; } 
+a.permission_16    { color: #CC9933 !important; } 
+a.permission_15    { color: #99CC00 !important; } 
+a.permission_14    { color: #66CC00 !important; } 
+a.permission_13    { color: #009c00 !important; } 
+a.permission_12    { color: #006b00 !important; } 
+a.permission_11    { font-weight: bold !important; color: #e2e8f0 !important; } 
+a.permission_10    { color: #cbd5e1 !important; } 
+
+/* =========================================
+   TAGS, PEOPLE & PILLS (SIDEBAR & MAIN)
+   ========================================= */
+#taglist tr td a, .tags a, .movie-tooltip__tag,
+#artist_list a, ul.stats li a, ul.tags li a {
+  background: rgba(14, 165, 233, 0.1) !important;
+  border: 1px solid rgba(14, 165, 233, 0.3) !important;
+  border-radius: 6px !important;
+  padding: 4px 10px !important;
+  font-size: 0.85em !important;
+  color: var(--hb-link) !important;
+  transition: all 0.2s ease !important;
+  display: inline-block !important;
+  margin: 2px !important;
+}
+
+#taglist tr td a:hover, .tags a:hover, .movie-tooltip__tag:hover,
+#artist_list a:hover, ul.stats li a:hover, ul.tags li a:hover {
+  background: var(--accent-gradient) !important;
+  border-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4) !important;
+  transform: translateY(-1px);
+}
+
+#artist_list .remove a, ul.stats .remove a, ul.tags .remove a, .remove_artist a {
+  border-radius: 50% !important;
+  padding: 0 !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: var(--hb-danger) !important;
+  background: rgba(244, 63, 94, 0.1) !important;
+  border: 1px solid rgba(244, 63, 94, 0.3) !important;
+  margin-right: 4px !important; 
+}
+
+#artist_list .remove a:hover, ul.stats .remove a:hover, ul.tags .remove a:hover, .remove_artist a:hover {
+  background: var(--hb-danger) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 10px rgba(244, 63, 94, 0.4) !important;
+  transform: scale(1.1) !important;
+}
+
+/* =========================================
+   SVG ICONS, TORRENT ICONS & STATUS
+   ========================================= */
+svg { fill: var(--hb-text) !important; }
+.up_polygon, .upload_stat, .good, .goodish, .tl_seeding { fill: var(--hb-success) !important; color: var(--hb-success) !important; filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.4)); }
+.down_polygon, .down_stat, .bad, .badish, .tl_snatched { fill: var(--hb-danger) !important; color: var(--hb-danger) !important; filter: drop-shadow(0 0 4px rgba(244, 63, 94, 0.4)); }
+.internal-mark, .tl_notice, table#torrent_table strong, .bookmark_ic { color: var(--hb-warn) !important; fill: var(--hb-warn) !important; }
+.token_ic { color: #d2a8ff !important; fill: #d2a8ff !important; }
+.reseed_ic { color: #d29922 !important; fill: #d29922 !important; }
+
+/* צבעים ייעודיים לסמלים בטבלת הטורנטים */
+.torrent_icons i, .torrent_icons .fa {
+  transition: all 0.2s ease !important;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.5)) !important;
+  display: inline-block !important;
+}
+
+.download_ic i, .download_ic .fa-download { color: #10b981 !important; }
+.report_ic i, .report_ic .fa-exclamation-triangle { color: #f43f5e !important; }
+.reseed_ic i, .reseed_ic .fa-refresh { color: #8b5cf6 !important; }
+a[href*="action=edit"] i, .fa-pencil-square-o { color: #f59e0b !important; }
+a[href*="action=delete"] i, .fa-trash { color: #ef4444 !important; }
+a[href*="torrentid="] i, .fa-link { color: #0ea5e9 !important; }
+
+.torrent_icons a:hover i {
+  filter: brightness(1.4) drop-shadow(0 0 6px currentColor) !important;
+}
+
+/* =========================================
+   BUTTONS & TAGS 
+   ========================================= */
+input[type="submit"], button, .btn, .filter_torrents div.submit.ft_submit input[type="submit"] {
+  background: var(--accent-gradient) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 99px !important;
+  padding: 8px 22px !important;
+  font-weight: 600 !important;
+  font-family: var(--hb-font) !important;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+input[type="submit"]:hover, button:hover, .btn:hover {
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5) !important;
+  filter: brightness(1.2) !important;
+}
+
+.filter_torrents div.submit.ft_submit {
+  background: transparent !important;
+  border-top: 1px solid var(--hb-border-soft) !important;
+  padding: 15px !important;
+}
+
+/* =========================================
+   INPUTS & FORMS
+   ========================================= */
+input[type="text"], input[type="search"], textarea, select, input[type="password"] {
+  background: rgba(0, 0, 0, 0.4) !important; 
+  border: 1px solid var(--hb-border) !important;
+  border-radius: 10px !important;
+  color: var(--hb-text-strong) !important;
+  padding: 10px 14px !important;
+  font-family: var(--hb-font) !important;
+  transition: all 0.3s ease !important;
+}
+
+input[type="text"]:focus, input[type="search"]:focus, textarea:focus, select:focus {
+  background: rgba(0, 0, 0, 0.6) !important;
+  border-color: var(--accent-purple) !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3) !important;
+  outline: none !important;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  accent-color: var(--accent-blue) !important;
+  margin-left: 5px !important;
+}
+
+/* =========================================
+   MOVIE POSTERS & IMAGES
+   ========================================= */
+img.banner, #covers img, .group_image img, .torrent_screenshots > img {
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+img.banner:hover, #covers img:hover, .group_image img:hover {
+  transform: translateY(-5px) scale(1.03) !important;
+  box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4) !important; 
+  border-color: rgba(255,255,255,0.3) !important;
+}
+
+/* =========================================
+   SCROLLBAR
+   ========================================= */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover { filter: brightness(1.3); }
+
+/* =========================================
+   WYSIBB EDITOR
+   ========================================= */
+.wysibb, .wysibb-text, .wysibb-toolbar {
+  background: rgba(22, 30, 46, 0.8) !important;
+  border-color: var(--hb-border) !important;
+}
+.wysibb-body {
+  background: rgba(0, 0, 0, 0.4) !important;
+  color: var(--hb-text-strong) !important;
+  font-family: var(--hb-font) !important;
+}
+.wysibb *, .wysibb-body * {
+  background-color: transparent !important;
+}
+
+/* =========================================
+   OWL CAROUSEL FIXES
+   ========================================= */
+.owl-nav {
+  margin-top: 15px !important;
+  text-align: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 15px !important; 
+}
+
+.owl-dots {
+  margin-top: 15px !important;
+  text-align: center !important;
+}
+
+.owl-nav button, .owl-dots button {
+  padding: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.owl-nav button.owl-prev, .owl-nav button.owl-next {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--hb-border-soft) !important;
+  border-radius: 50% !important; 
+  color: var(--hb-text) !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.owl-nav button.owl-prev span, .owl-nav button.owl-next span {
+  margin-top: -3px !important; 
+}
+
+.owl-nav button.owl-prev:hover, .owl-nav button.owl-next:hover {
+  background: var(--accent-gradient) !important;
+  color: #fff !important;
+  transform: scale(1.1) !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4) !important;
+}
+
+.owl-dots .owl-dot {
+  display: inline-block !important;
+  margin: 0 6px !important;
+}
+
+.owl-dots .owl-dot span {
+  display: block !important;
+  width: 10px !important;
+  height: 10px !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+  margin: 0 !important;
+}
+
+.owl-dots .owl-dot.active span, .owl-dots .owl-dot:hover span {
+  background: var(--accent-blue) !important; 
+  transform: scale(1.4) !important; 
+  box-shadow: 0 0 10px rgba(14, 165, 233, 0.6) !important;
+}
